@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programación en tus manos</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0;
+    }
+
+    body {
+        background-image: url("fondo.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Dubai', sans-serif;
+        color: #eee;
+        text-align: center;
+        min-height: 100vh;
+        padding-bottom: 60px;
+        background-color: rgba(0,0,0,0.6);
+        backdrop-filter: brightness(0.6);
+    }
+
+    .contenido {
+        background-color: rgba(0, 0, 0, 0.75);
+        max-width: 900px;
+        width: 90%;
+        margin: 50px auto 20px auto;
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #f1c40f;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 2em;
+        color: #3498db;
+        margin: 20px 0 25px;
+        line-height: 1.4;
+    }
+
+    .imagen-centro {
+        width: 390px;
+        max-width: 90%;
+        margin: 25px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        display: block;
+    }
+
+    .boton {
+        display: inline-block;
+        width: 220px;
+        margin: 15px 10px 0 10px;
+        text-decoration: none;
+        color: white;
+        background-color: #2980b9;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .boton:hover {
+        background-color: #1f6391;
+        transform: scale(1.05);
+    }
+
+    #python-code {
+        width: 90%;
+        height: 150px;
+        margin: 20px auto;
+        display: block;
+        font-family: monospace;
+        font-size: 1em;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #3498db;
+        background-color: #222;
+        color: #eee;
+    }
+
+    #output {
+        width: 90%;
+        height: 150px;
+        margin: 10px auto 40px auto;
+        background-color: #111;
+        color: #0f0;
+        padding: 10px;
+        border-radius: 8px;
+        font-family: monospace;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        border: 1px solid #3498db;
+    }
+
+    #run-btn {
+        background-color: #2980b9;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #run-btn:hover {
+        background-color: #1f6391;
+    }
+
+    #terminal-info {
+        color: #ccc;
+        font-style: italic;
+        margin-top: 10px;
+        font-size: 1em;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+</head>
+<body>
+
+<div class="contenido">
+
+    <h1>Ejercicio Final.</h1>
+    <h3>
+        Llego la hora de poner a prueba todo lo aprendido. Desarrolla una calculadora en Python que cumpla con los siguientes puntos:<br>
+        - Permita al usuario ingresar los valores.<br>
+        - Pregunte al usuario la operación que desea realizar.<br>
+        - Utilice estructura de control condicional.<br>
+        - Tenga un ciclo while el cual no se cerrará hasta que el usuario lo indique con un sí.<br>
+        - Envíe un mensaje de error cuando se quiera dividir entre 0.<br>
+        REALIZA EL EJERCICIO EN TU ENTORNO YA INSTALADO .
+    </h3>
+
+    <img src="neco5.png" alt="neco" class="imagen-centro" />
+
+    <p id="terminal-info">Esta es una terminal para ejecutar código Python. Puedes ingresar números y comandos, y verás el resultado abajo (juega con lo aprendido).</p>
+
+    <textarea id="python-code" placeholder="Escribe aquí tu código Python..."></textarea>
+    <button id="run-btn">Ejecutar código</button>
+    <pre id="output"></pre>
+
+    <a href="inicio.html" class="boton">Inicio</a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUQy40uKfOtGrUNlg68lkUekYd0OolkgCVSRHD5k44XHqCfg/viewform?usp=dialog"
+    class="boton boton-claro"
+    target="_blank">Ayudanos a mejorar.</a>
+
+</div>
+
+<!-- SCRIPT CORREGIDO PARA REDIRIGIR PRINT() -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<script>
+    async function main() {
+        let pyodide = await loadPyodide();
+        const output = document.getElementById('output');
+        const runBtn = document.getElementById('run-btn');
+        const codeArea = document.getElementById('python-code');
+
+        runBtn.onclick = async () => {
+            output.textContent = 'Ejecutando...';
+            try {
+                let captured = '';
+                pyodide.setStdout({
+                    batched: (s) => { captured += s; }
+                });
+                pyodide.setStderr({
+                    batched: (s) => { captured += s; }
+                });
+
+                const code = codeArea.value;
+                await pyodide.runPythonAsync(code);
+
+                output.textContent = captured.trim() || 'Código ejecutado con éxito.';
+            } catch (err) {
+                output.textContent = `Error: ${err}`;
+            }
+        };
+    }
+
+    main();
+</script>
+
+</body>
+</html>

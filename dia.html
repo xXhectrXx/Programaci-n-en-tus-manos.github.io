@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programación en tus manos</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-image: url("fondo.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Segoe UI', 'Dubai', sans-serif;
+        color: #ffffff;
+        text-align: center;
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 60px; 
+        backdrop-filter: brightness(0.6);
+    }
+
+    .contenido {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        max-width: 900px;
+        width: 90%;
+        margin: 60px auto 20px auto;
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #f1c40f;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        color: #ecf0f1;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        color: #3498db;
+        margin: 25px 0 15px 0;
+    }
+
+    h4, h6 {
+        font-size: 1.3em;
+        color: #ecf0f1;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    h5 {
+        font-size: 1.2em;
+        color: #e74c3c;
+        margin-bottom: 15px;
+    }
+
+    .imagen-centro {
+        width: 390px;
+        max-width: 90%;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .boton {
+        display: inline-block;
+        width: 220px;
+        margin: 10px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #2980b9;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+    }
+
+    .boton:hover {
+        background-color: #1f6391;
+        transform: scale(1.05);
+    }
+
+    .barra-inferior {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 1em;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
+    }
+
+    textarea {
+        width: 90%;
+        max-width: 700px;
+        margin: 20px auto;
+        display: block;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1em;
+        font-family: 'Courier New', monospace;
+        resize: vertical;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #2ecc71;
+        white-space: pre-wrap;
+    }
+</style>
+</head>
+<body>
+
+<div class="contenido">
+
+    <h1>Diagramas de flujo</h1>
+    
+    <h2>
+        Un diagrama de flujo es una representación gráfica de las etapas de un proceso, trabajo o programa informático, usando figuras geométricas y flechas que indican acciones.
+    </h2>
+
+    <h3>Elementos de un diagrama de flujo:</h3>
+
+    <img src="geo.png" alt="Diagramas" class="imagen-centro">
+    
+    <img src="geo2.png" alt="Diagramas" class="imagen-centro">
+
+    <h4>
+        Ejemplo práctico:<br>
+        Construye un diagrama de flujo para un sistema que calcule el total a pagar por una llamada telefónica según los minutos:<br><br>
+        - Si dura 6 minutos o menos → Costo: 8 pesos.<br>
+        - Si dura más de 6 minutos → Costo: 10 pesos.
+    </h4>
+
+    <img src="dia.PNG" alt="Diagrama de ejemplo" class="imagen-centro">
+
+    <h5>
+        Los diagramas de flujo pueden utilizarse incluso en situaciones cotidianas, como decidir el transporte para ir a la universidad.
+    </h5>
+
+    <h6>
+        ¡Es momento de aplicar lo aprendido! <br>
+        Crea un diagrama de flujo que calcule el costo del boleto según la edad del usuario:<br><br>
+        - Menor de 12 años → 4 pesos.<br>
+        - Entre 18 y 60 años → 10 pesos.<br>
+        - Mayor de 60 años → Gratis.
+    </h6>
+
+    <img src="neco3.png" alt="Mascota" class="imagen-centro">
+
+    <h3>Utiliza PSeInt para crear tus propios diagramas de flujo</h3>
+
+    <h4>
+        PSeInt es una herramienta gratuita que te permite escribir pseudocódigo y visualizarlo como un diagrama de flujo. <br><br>
+        Pasos para usarlo:<br>
+        1. Descarga PSeInt desde su página oficial.<br>
+        2. Abre el programa y selecciona "Diagrama de flujo".<br>
+        3. Escribe tu algoritmo en pseudocódigo como ( escribir "hola" ).<br>
+        4. Haz clic en "Ejecutar" para ver el resultado ten en cuenta el "escribir" en este pseudocódigo .<br><br>
+        A continuación, puedes escribir un ejemplo de pseudocódigo y ver cómo se ejecutaría :
+    </h4>
+
+    <textarea id="codigo" rows="8" placeholder="Escribe tu pseudocódigo aquí..."></textarea>
+
+    <button onclick="mostrarResultado()" class="boton">Ejecutar diagrama</button>
+
+    <h5 id="resultado"></h5>
+
+    <a href="virtual.html" class="boton">Siguiente tema</a>
+    <a href="inicio.html" class="boton">Inicio</a>
+
+</div>
+
+<div class="barra-inferior">
+    Programación en tus manos - 2025
+</div>
+
+<script>
+    function mostrarResultado() {
+        const texto = document.getElementById('codigo').value.trim();
+        const resultado = document.getElementById('resultado');
+
+        if (texto === "") {
+            resultado.innerText = "Por favor, escribe un pseudocódigo primero.";
+            return;
+        }
+
+        const lineas = texto.split('\n');
+        let salida = "";
+
+        for (let linea of lineas) {
+            linea = linea.trim();
+
+            if (linea.toLowerCase().startsWith("escribir")) {
+                const match = linea.match(/"(.*?)"/);
+                if (match) {
+                    salida += match[1] + "\n";
+                } else {
+                    salida += "[Error: Falta comillas en Escribir]\n";
+                }
+            } else {
+                salida += "[Instrucción no reconocida: " + linea + "]\n";
+            }
+        }
+
+        resultado.innerText = salida;
+    }
+</script>
+
+</body>
+</html>

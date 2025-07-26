@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programación en tus manos</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0;
+    }
+
+    body {
+        background-image: url("fondo.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Segoe UI', 'Dubai', sans-serif;
+        color: #eee;
+        text-align: center;
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 60px;
+        backdrop-filter: brightness(0.6);
+    }
+
+    .contenido {
+        background-color: rgba(0, 0, 0, 0.75);
+        max-width: 900px;
+        width: 90%;
+        margin: 60px auto 20px auto;
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #f1c40f;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin: 20px 0 30px;
+        color: #ecf0f1;
+        line-height: 1.5;
+    }
+
+    h3 {
+        font-size: 2em;
+        color: #3498db;
+        margin: 20px 0 15px;
+    }
+
+    .imagen-centro {
+        width: 390px;
+        max-width: 90%;
+        margin: 25px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        display: block;
+    }
+
+    .boton {
+        display: inline-block;
+        width: 220px;
+        margin: 15px 10px 0 10px;
+        text-decoration: none;
+        color: white;
+        background-color: #2980b9;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .boton:hover {
+        background-color: #1f6391;
+        transform: scale(1.05);
+    }
+
+    .barra-inferior {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 1em;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+        user-select: none;
+        z-index: 100;
+    }
+</style>
+</head>
+<body>
+
+<div class="contenido">
+
+    <h1>Variables.</h1>
+    <h3>¿Qué son las variables?</h3>
+    <h2>Una variable es un contenedor que almacena un valor, ya sea de texto o numérico, en la memoria del ordenador, asignándole un nombre único.</h2>
+
+    <h3>Variables numéricas.</h3>
+    <h2>Las variables numéricas son aquellas que almacenan un valor numérico, como por ejemplo:</h2>
+    <img src="VN.png" alt="Variable Numérica" class="imagen-centro" />
+
+    <h3>Variables de texto.</h3>
+    <h2>Las variables de texto son aquellas que almacenan cadenas de caracteres, como por ejemplo:</h2>
+    <img src="VT.png" alt="Variable de Texto" class="imagen-centro" />
+
+    <h2>Ejercicio</h2>
+    <h3>Vamos a aplicar lo aprendido con el siguiente ejercicio: crea un archivo de tipo Python con las siguientes variables:
+        <br>1. Tu nombre.
+        <br>2. Tu edad.
+        <br>3. Tu comida favorita.
+        <br>4. Tu serie favorita.
+        <br>5. Tu número favorito.
+    </h3>
+
+    <a href="inicio.html" class="boton">Inicio</a>
+    <a href="Funciones.html" class="boton">Siguiente tema</a>
+
+</div>
+
+<div class="barra-inferior">
+    Programación en tus manos - 2025
+</div>
+
+</body>
+</html>
